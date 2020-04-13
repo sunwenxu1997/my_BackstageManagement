@@ -25,7 +25,7 @@ const routes = [
     component: () =>
       import("../views/Home.vue"),
     meta: { title: '主页' },
-    redirect: "/one",
+    redirect: "/index",
     children: [
       {
         path: 'index',
