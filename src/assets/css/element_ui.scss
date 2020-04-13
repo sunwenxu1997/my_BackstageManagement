@@ -1,0 +1,38 @@
+//左侧导航栏
+.el-menu {
+    border-right: none !important;
+    .el-menu-item.is-active {
+        color: var(--base) !important;
+        background: var(--sidebar) !important;
+        font-weight: bold !important;
+        &::before {
+            content: "";
+            width: 3px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            background: var(--base) !important;
+        }
+    }
+    .el-menu-item {
+        &:hover {
+            background: var(--sidebar) !important;
+        }
+    }
+    .el-submenu__title{
+        &:hover {
+            background: var(--sidebar) !important;
+        }
+    }
+}
+/***loading 自定义样式**/
+.el-loading-spinner {
+    i {
+        font-size: 2rem;
+    }
+    .circular {
+        .path {
+            stroke: white !important;
+        }
+    }
+}

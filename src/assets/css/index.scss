@@ -1,6 +1,23 @@
 @import "./theme.scss";
+@import "./element_ui.scss";
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+body,html{
+    height: 100%;
+}
+body {
+    width: 100%;
+    &::-webkit-scrollbar {
+        opacity: 0;
+        background: transparent !important;
+        width: 3px; //y轴滚轮的宽
+        height: 15px; //x轴滚轮的高
+    }
+    &::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        background: #d3d3d3;
+    }
 }

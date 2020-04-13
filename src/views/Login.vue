@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="title">
-      <h2>管理系统</h2>
+      <h2>{{$siteSet.name}}</h2>
       <p>management system</p>
     </div>
     <div class="login_box">
@@ -19,7 +19,7 @@
           <i class="el-icon-lock"></i>
         </span>
         <div class="input_text">
-          <input type="password" v-model="loginForm.password" />
+          <input type="password" v-model="loginForm.password" autocomplete="new-password" />
           <span class="msg_hint" :class="loginForm.password?'focus':''">密码</span>
         </div>
       </div>
@@ -60,10 +60,10 @@ export default {
         return;
       }
       this.$store.commit("USER_SIGNIN", {});
-      this.$message.success('登录成功！')
+      this.$message.success("登录成功！");
       this.$router.replace({
-          name:'Center'
-      })
+        name: "Home"
+      });
     }
   }
 };
