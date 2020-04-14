@@ -106,7 +106,7 @@ export default {
     sidebarStretch() {
       if (!this.isCollapse) {
         this.$parent.contentOpen = true;
-        this.$refs["sidebar"].style.minWidth = "60px";
+        this.$refs["sidebar"].style.minWidth = "65px";
       } else {
         this.$parent.contentOpen = false;
         this.$refs["sidebar"].style.minWidth = "250px";
@@ -134,6 +134,9 @@ export default {
   user-select: none;
   overflow-y: auto;
   overflow-x: hidden;
+  *{
+    box-sizing: border-box !important;
+  }
   &::-webkit-scrollbar {
     opacity: 0;
     background: transparent !important;
@@ -153,7 +156,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    height: 40px;
     padding: 0 20px;
     font-size: 15px;
     &.close {

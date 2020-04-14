@@ -76,13 +76,13 @@ export default {
 
 <style lang="scss" scoped>
 .tags {
-  height: 50px;
+  height: 40px;
   width: 100%;
   overflow-x: auto;
   background: #f1f1f1;
   display: flex;
   align-items: center;
-  position: sticky;
+  position: fixed;
   top: 50px;
   box-shadow: 0 1px 2px #f1f1f1;
   .tag_nav {

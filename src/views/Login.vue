@@ -19,7 +19,12 @@
           <i class="el-icon-lock"></i>
         </span>
         <div class="input_text">
-          <input type="password" v-model="loginForm.password" autocomplete="new-password" />
+          <input
+            @keyup.enter="toLogin()"
+            type="password"
+            v-model="loginForm.password"
+            autocomplete="new-password"
+          />
           <span class="msg_hint" :class="loginForm.password?'focus':''">密码</span>
         </div>
       </div>

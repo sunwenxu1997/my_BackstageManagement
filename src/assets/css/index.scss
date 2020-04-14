@@ -5,7 +5,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-body,html{
+body,
+html {
     height: 100%;
 }
 body {
@@ -20,4 +21,8 @@ body {
         /*滚动条里面小方块*/
         background: #d3d3d3;
     }
+}
+//面包屑盒子
+.breadcrumb_box {
+    padding-bottom: 20px;
 }
