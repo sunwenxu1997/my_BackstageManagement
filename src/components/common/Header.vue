@@ -3,7 +3,7 @@
     <div class="h_l">
       <span>{{$siteSet.name}}</span>
     </div>
-    
+
     <div class="h_r">
       <span class="user_img">
         <img src="@/assets/img/user.jpg" alt />
@@ -16,14 +16,15 @@
 
 <script>
 export default {
- methods:{
-     loginOut(){
-         this.$message.success('退出成功')
-         this.$router.replace({
-             name:'Login'
-         })
-     }
- }
+  methods: {
+    loginOut() {
+      this.$message.success("退出成功");
+      this.$store.commit("USER_SIGNOUT");
+      this.$router.replace({
+        name: "Login"
+      });
+    }
+  }
 };
 </script>
 
@@ -61,13 +62,13 @@ export default {
     .user_name {
       font-size: 15px;
     }
-    .login_out{
-        font-size: 13px;
-        margin-left: 30px;
-        cursor: pointer;
-        &:hover{
-            border-bottom: 2px solid white;
-        }
+    .login_out {
+      font-size: 13px;
+      margin-left: 30px;
+      cursor: pointer;
+      &:hover {
+        border-bottom: 2px solid white;
+      }
     }
   }
 }

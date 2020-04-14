@@ -8,20 +8,19 @@ export const USER_SIGNOUT = 'USER_SIGNOUT' //退出登录
 export const USER_INFO_COMMIT = 'USER_INFO_COMMIT' //sessionStorage 传值进state
 
 export default new Vuex.Store({
-  //全局变量
   state: {
     userInfo: { //储存用户相关信息
 
     },
     isUserLogin: false,
   },
-  
   mutations: {
     [USER_SIGNIN](state, user) {
       sessionStorage.setItem('userInfo', JSON.stringify(user));
       sessionStorage.setItem('isUserLogin', 'true');
       if (JSON.stringify(user)) {
-        Object.assign(state.userInfo, sessionStorage.getItem('userInfo') ? JSON.parse(sessionStorage.getItem('userInfo')) : user)
+        state.userInfo = user
+        // Object.assign(state.userInfo, sessionStorage.getItem('userInfo') ? JSON.parse(sessionStorage.getItem('userInfo')) : user)
         state.isUserLogin = sessionStorage.getItem('isUserLogin') ? JSON.parse(sessionStorage.getItem('isUserLogin')) : false;
       }
     },
