@@ -65,9 +65,12 @@ export default {
         this.tagsList.push({
           title: route.meta.title,
           path: route.fullPath,
+          //此处要注意在使用的页面，头部，也就是 data() 上方记着加 name:''，这样才能获到
           name: route.matched[1].components.default.name
         });
       }
+      //子组件定义事件
+      // 父组件接收 用 $on
       bus.$emit("tags", this.tagsList);
     }
   }
