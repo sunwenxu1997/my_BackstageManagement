@@ -1,9 +1,9 @@
 <template>
   <div class="sidebar" ref="sidebar">
-    <div class="title" :class="isCollapse?'close':''">
-      <span class="t" v-show="!isCollapse">导航</span>
+    <div class="title" :class="$parent.contentOpen?'close':''">
+      <span class="t" v-show="!$parent.contentOpen">导航</span>
       <span class="i" @click="sidebarStretch()">
-        <i class="el-icon-s-fold" v-if="!isCollapse"></i>
+        <i class="el-icon-s-fold" v-if="!$parent.contentOpen"></i>
         <i class="el-icon-s-unfold" v-else></i>
       </span>
     </div>
@@ -13,7 +13,7 @@
         class="el-menu-vertical-demo"
         @open="handleOpen"
         @close="handleClose"
-        :collapse="isCollapse"
+        :collapse="$parent.contentOpen"
         unique-opened
         router
       >
@@ -48,7 +48,6 @@ export default {
   },
   data() {
     return {
-      isCollapse: false,
       navList: [
         {
           icon: "el-icon-guide",
@@ -101,17 +100,22 @@ export default {
       ]
     };
   },
+  mounted() {
+    if (this.$parent.contentOpen) {
+      this.$refs["sidebar"].style.minWidth = "65px";
+    } else {
+      this.$refs["sidebar"].style.minWidth = "250px";
+    }
+  },
   methods: {
     //侧边栏的伸展
     sidebarStretch() {
-      if (!this.isCollapse) {
-        this.$parent.contentOpen = true;
+      this.$parent.contentOpen = !this.$parent.contentOpen;
+      if (this.$parent.contentOpen) {
         this.$refs["sidebar"].style.minWidth = "65px";
       } else {
-        this.$parent.contentOpen = false;
         this.$refs["sidebar"].style.minWidth = "250px";
       }
-      this.isCollapse = !this.isCollapse;
     },
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
@@ -134,7 +138,7 @@ export default {
   user-select: none;
   overflow-y: auto;
   overflow-x: hidden;
-  *{
+  * {
     box-sizing: border-box !important;
   }
   &::-webkit-scrollbar {

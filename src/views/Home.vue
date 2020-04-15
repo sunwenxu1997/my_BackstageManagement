@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       tagsList: [],
-      contentOpen: false, //右侧内容是否展开
+      contentOpen: true, //右侧内容是否展开,默认展开
       //窗口高
       h: window.innerHeight
     };
