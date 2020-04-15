@@ -81,12 +81,12 @@ export default {
 .tags {
   height: 40px;
   width: 100%;
+  position: absolute;
   overflow-x: auto;
   background: #f1f1f1;
   display: flex;
   align-items: center;
-  position: fixed;
-  top: 50px;
+  top: 0;
   box-shadow: 0 1px 2px #f1f1f1;
   .tag_nav {
     max-width: 150px;
@@ -101,6 +101,7 @@ export default {
     cursor: pointer;
     transform-origin: 0% 50%;
     animation: tags 0.3s ease both 1;
+    overflow: hidden;
     // clip-path: polygon(0 0,calc(100% - 7px) 0,100% 50%,calc(100% - 7px) 100%,0 100%,7px 50%);
     &.active {
       background: var(--start_base) !important;
@@ -122,7 +123,7 @@ export default {
       color: #5a5a5a;
       text-decoration: none;
       display: inline-block;
-      width: 100%;
+      width: calc(100% - 25px);
       overflow: hidden;
     }
     .close {

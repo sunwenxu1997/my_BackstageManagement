@@ -3,12 +3,15 @@
     <Header class="header"></Header>
     <div class="hold_content">
       <!-- 最大高度 - 头部导航栏的高 50  -->
-      <Sidebar class="sidebar" :style="`max-height: ${h - 50}px;`"></Sidebar>
+      <Sidebar class="sidebar" ></Sidebar>
       <div
         class="hold_content_c"
         :style="contentOpen?`max-width: calc(100% - 65px);`:`max-width: calc(100% - 250px);`"
       >
-        <Tags></Tags>
+        <Tags
+          class="tags"
+          :style="contentOpen?'width: calc(100% - 65px);':'width: calc(100% - 250px);'"
+        ></Tags>
         <keep-alive :include="tagsList">
           <router-view style="padding: 20px;margin-top:40px;"></router-view>
         </keep-alive>
@@ -32,8 +35,6 @@ export default {
     return {
       tagsList: [],
       contentOpen: true, //右侧内容是否展开,默认展开
-      //窗口高
-      h: window.innerHeight
     };
   },
   created() {
@@ -55,7 +56,7 @@ export default {
   height: 50px;
 }
 .hold_content {
-  min-width: 1200px;
+  min-width: 1400px;
   width: 100%;
   min-height: calc(100% - 50px);
   position: absolute;
@@ -76,6 +77,12 @@ export default {
     transition: 0.4s;
     width: 100%;
     min-height: 100%;
+  }
+  .tags {
+    transition: 0.4s;
+    position: fixed;
+    top: 50px;
+    z-index: 99;
   }
 }
 </style>
