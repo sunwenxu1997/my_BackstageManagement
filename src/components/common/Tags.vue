@@ -135,6 +135,8 @@ export default {
       right: 5px;
       top: 7px;
       i {
+        color: #808080;
+        font-weight: bold;
         font-size: 13px;
       }
     }
