@@ -22,7 +22,7 @@
             <i :class="n.icon"></i>
             <span slot="title">{{n.title}}</span>
           </template>
-          <el-menu-item-group v-if="n.children">
+          <el-menu-item-group v-if="n.children" title="">
             <el-menu-item
               :index="i.index"
               v-for="(i,indexC) in n.children"

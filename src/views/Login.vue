@@ -113,7 +113,6 @@ export default {
     width: 350px;
     input {
       color: #5a5a5a;
-      font-weight: bold;
     }
   }
 }

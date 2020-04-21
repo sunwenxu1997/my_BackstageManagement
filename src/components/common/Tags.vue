@@ -109,6 +109,9 @@ export default {
       * {
         color: white !important;
       }
+      .close {
+        opacity: 1;
+      }
     }
     &:hover {
       background: #f1f1f1;
@@ -127,7 +130,7 @@ export default {
       overflow: hidden;
     }
     .close {
-      opacity: 0;
+      // opacity: 0;
       position: absolute;
       right: 5px;
       top: 7px;

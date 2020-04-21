@@ -19,10 +19,14 @@
             background: var(--sidebar) !important;
         }
     }
-    .el-submenu__title{
+    .el-submenu__title {
         &:hover {
             background: var(--sidebar) !important;
         }
+    }
+    //子菜单的分组title
+    .el-menu-item-group__title {
+        display: none !important;
     }
 }
 /***loading 自定义样式**/
