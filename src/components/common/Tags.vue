@@ -105,57 +105,57 @@ export default {
   background: #f1f1f1;
   box-shadow: 0 1px 2px #f1f1f1;
 }
- .SortableItem {
-    max-width: 150px;
-    flex-grow: 1;
-    background: white;
-    display: inline-block;
-    position: relative;
-    z-index: 10;
-    font-size: 13px;
-    margin-left: 5px;
-    border-radius: 3px;
-    white-space: nowrap;
-    cursor: pointer;
-    transform-origin: 0% 50%;
-    // animation: tags 0.3s ease both 1;
-    overflow: hidden;
-    &.active {
-      background: var(--start_base) !important;
-      box-shadow: 2px 0 5px #ccc;
-      * {
-        color: white !important;
-      }
-      .close {
-        opacity: 1;
-      }
-    }
-    &:hover {
-      background: #f1f1f1;
-      box-shadow: 2px 0 5px #ccc;
-    }
-    &:hover .close {
-      opacity: 1;
-    }
-    .title {
-      padding: 5px 10px;
-      padding-right: 25px;
-      color: #5a5a5a;
-      text-decoration: none;
-      display: inline-block;
-      width: calc(100% - 25px);
-      overflow: hidden;
+.SortableItem {
+  padding: 5px 10px;
+  padding-right: 25px;
+  max-width: 150px;
+  flex-grow: 1;
+  background: white;
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  font-size: 13px;
+  margin-left: 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+  cursor: pointer;
+  transform-origin: 0% 50%;
+  // animation: tags 0.3s ease both 1;
+  overflow: hidden;
+  &.active {
+    background: var(--start_base) !important;
+    box-shadow: 2px 0 5px #ccc;
+    * {
+      color: white !important;
     }
     .close {
-      // opacity: 0;
-      position: absolute;
-      right: 5px;
-      top: 7px;
-      i {
-        color: #808080;
-        font-weight: bold;
-        font-size: 13px;
-      }
+      opacity: 1;
     }
   }
+  &:hover {
+    background: #f1f1f1;
+    box-shadow: 2px 0 5px #ccc;
+  }
+  &:hover .close {
+    opacity: 1;
+  }
+  .title {
+    color: #5a5a5a;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+  }
+  .close {
+    // opacity: 0;
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    i {
+      color: #808080;
+      font-weight: bold;
+      font-size: 13px;
+    }
+  }
+}
 </style>
