@@ -1,24 +1,39 @@
 <template>
-  <div class="tags" v-if="showTags">
-    <span
-      class="tag_nav"
+  <SlickList
+    v-if="showTags"
+    :distance="5"
+    :lockToContainerEdges="true"
+    :lockOffset="-5"
+    axis="x"
+    lockAxis="x"
+    v-model="tagsList"
+    class="SortableList"
+  >
+    <SlickItem
+      class="SortableItem"
       :class="{'active':isActive(i.path)}"
       :style="`width:${100/(tagsList.length + 5)}%`"
       v-for="(i,index) in tagsList"
       :key="index"
       :title="i.title"
+      :index="index"
     >
       <router-link :to="i.path" class="title">{{i.title}}</router-link>
       <span class="close" @click="closeTags(index)">
         <i class="el-icon-close"></i>
       </span>
-    </span>
-  </div>
+    </SlickItem>
+  </SlickList>
 </template>
 
 <script>
 import bus from "./bus";
+import { SlickList, SlickItem } from "vue-slicksort";
 export default {
+  components: {
+    SlickItem,
+    SlickList
+  },
   computed: {
     showTags() {
       return this.tagsList.length > 0;
@@ -78,31 +93,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.tags {
-  height: 40px;
+.SortableList {
   width: 100%;
+  height: 40px;
   position: absolute;
-  overflow-x: auto;
-  background: #f1f1f1;
+  top: 0;
   display: flex;
   align-items: center;
-  top: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background: #f1f1f1;
   box-shadow: 0 1px 2px #f1f1f1;
-  .tag_nav {
+}
+ .SortableItem {
     max-width: 150px;
     flex-grow: 1;
     background: white;
     display: inline-block;
     position: relative;
+    z-index: 10;
     font-size: 13px;
     margin-left: 5px;
     border-radius: 3px;
     white-space: nowrap;
     cursor: pointer;
     transform-origin: 0% 50%;
-    animation: tags 0.3s ease both 1;
+    // animation: tags 0.3s ease both 1;
     overflow: hidden;
-    // clip-path: polygon(0 0,calc(100% - 7px) 0,100% 50%,calc(100% - 7px) 100%,0 100%,7px 50%);
     &.active {
       background: var(--start_base) !important;
       box-shadow: 2px 0 5px #ccc;
@@ -141,18 +158,4 @@ export default {
       }
     }
   }
-  .tag_nav:last-child {
-    margin-right: 5px;
-  }
-}
-@keyframes tags {
-  0% {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-}
 </style>

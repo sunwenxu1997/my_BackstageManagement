@@ -82,7 +82,7 @@ export default {
     transition: 0.4s;
     position: fixed;
     top: 50px;
-    z-index: 99;
+    z-index: 9;
   }
 }
 </style>
